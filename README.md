@@ -1,58 +1,114 @@
-# Hydrogen template: Demo Store
+# HerbSpot.fi - Shopify Hydrogen Verkkokauppa
 
-Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dovetail with [Remix](https://remix.run/), Shopify’s full stack web framework. This template contains a **full-featured setup** of components, queries and tooling to get started with Hydrogen. It is deployed at [hydrogen.shop](https://hydrogen.shop)
+Shopify Hydrogen -pohjainen verkkokauppa aromatiikka- ja kosmetiikkatuotteille.
 
-[Check out Hydrogen docs](https://shopify.dev/custom-storefronts/hydrogen)
-[Get familiar with Remix](https://remix.run/docs/en/v1)
+## 🛠️ Teknologia
 
-## What's included
+- **Shopify Hydrogen** - Shopifyn virallinen headless commerce framework
+- **Remix** - Full-stack React framework
+- **TypeScript** - Tyypitetty JavaScript
+- **Tailwind CSS** - Utility-first CSS
+- **GraphQL** - Shopify Storefront API
+- **Vite** - Build tool
 
-- Remix
-- Hydrogen
-- Oxygen
-- Shopify CLI
-- ESLint
-- Prettier
-- GraphQL generator
-- TypeScript and JavaScript flavors
-- Tailwind CSS (via PostCSS)
-- Full-featured setup of components and routes
+## 🚀 Aloitus
 
-## Getting started
-
-**Requirements:**
-
-- Node.js version 18.0.0 or higher
+### 1. Asenna riippuvuudet (jo tehty)
 
 ```bash
-npm create @shopify/hydrogen@latest -- --template demo-store
+npm install
 ```
 
-Remember to update `.env` with your shop's domain and Storefront API token!
+### 2. Konfiguroi Shopify-yhteys
 
-## Building for production
+Päivitä `.env` -tiedosto:
 
-```bash
-npm run build
+```env
+PUBLIC_STORE_DOMAIN="herbspot.myshopify.com"
+PUBLIC_STOREFRONT_API_TOKEN="your-storefront-api-token"
+PUBLIC_STOREFRONT_API_VERSION="2024-10"
+PUBLIC_MOCK_SHOP=false  # true = käytä demo-dataa, false = oikea Shopify
 ```
 
-## Local development
+### 3. Käynnistä kehitysserveri
 
 ```bash
 npm run dev
 ```
 
-## Setup for using Customer Account API (`/account` section)
+Avaa [http://localhost:3000](http://localhost:3000)
 
-### Setup public domain using ngrok
+## 📦 Tuotekategoriat
 
-1. Setup a [ngrok](https://ngrok.com/) account and add a permanent domain (ie. `https://<your-ngrok-domain>.app`).
-1. Install the [ngrok CLI](https://ngrok.com/download) to use in terminal
-1. Start ngrok using `ngrok http --domain=<your-ngrok-domain>.app 3000`
+### 🔵 Cartit & Akut
+- 510-kierteelliset akut
+- Herbal diffuser cartridget  
+- USB-lataajat ja lisävarusteet
 
-### Include public domain in Customer Account API settings
+### 🟢 Aroma & Kosmetiikka
+- Aroma cartridget
+- Cosmetic oil -tuotteet
+- Aromaöljyt
 
-1. Go to your Shopify admin => `Hydrogen` or `Headless` app/channel => Customer Account API => Application setup
-1. Edit `Callback URI(s)` to include `https://<your-ngrok-domain>.app/account/authorize`
-1. Edit `Javascript origin(s)` to include your public domain `https://<your-ngrok-domain>.app` or keep it blank
-1. Edit `Logout URI` to include your public domain `https://<your-ngrok-domain>.app` or keep it blank
+### 🟣 Lab & R&D
+- Laboratoriotuotteet
+- Tutkimuskäyttöön
+- Terpeenianalyysit
+
+### 🟠 Outlet
+- Erikoistarjoukset
+- Alennustuotteet
+- Rajoitetut erät
+
+## 🔒 Turvalliset termit
+
+Kaikissa tuotteissa käytetään turvallisia termejä:
+- ✅ **Aroma cartridge**
+- ✅ **Herbal diffuser cart**
+- ✅ **Cosmetic oil**
+- ✅ **Lab use / R&D use**
+
+**HUOM:** Kaikissa aroma- ja kosmetiikkatuotteissa merkintä: **"Ei sisäiseen käyttöön"**
+
+## 📁 Projektin rakenne
+
+```
+herbspot.fi/
+├── app/
+│   ├── routes/           # Remix-reitit
+│   ├── components/       # React-komponentit
+│   ├── lib/              # Apufunktiot
+│   ├── graphql/          # GraphQL-kyselyt
+│   └── styles/           # CSS-tyylit
+├── .env                  # Ympäristömuuttujat (ei Gitiin!)
+└── server.ts             # Remix-serveri
+```
+
+## 🌐 Deployment
+
+### Vercel (ei suositeltu Hydrogenille)
+Hydrogen on optimoitu **Oxygen**-platformille (Shopifyn oma hosting).
+
+### Oxygen (Suositeltu)
+
+```bash
+npm run build
+shopify hydrogen deploy
+```
+
+### Netlify / Custom Server
+
+```bash
+npm run build
+# Deploy dist/ -kansio
+```
+
+## 📝 Lisätietoa
+
+- [Hydrogen Docs](https://shopify.dev/custom-storefronts/hydrogen)
+- [Remix Docs](https://remix.run/docs)
+- [Shopify Storefront API](https://shopify.dev/api/storefront)
+
+## 📜 Lisenssi
+
+© 2024 HerbSpot.fi - Kaikki oikeudet pidätetään
