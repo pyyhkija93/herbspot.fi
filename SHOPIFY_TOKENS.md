@@ -18,7 +18,11 @@ Refresh Token: 2629b16b439c003b9944d728cbd0f1f3-1760426951
 
 - **Storefront API Access Token**
   - Tarvitaan: Configure Storefront API scopes ensin
-  - Scopet: unauthenticated_read_product_listings, unauthenticated_read_products
+  - Scopet: 
+    - unauthenticated_read_product_listings
+    - unauthenticated_read_product_inventory
+    - unauthenticated_read_product_pickup_locations
+    - unauthenticated_read_customers
 
 ---
 

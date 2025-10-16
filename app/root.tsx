@@ -101,7 +101,7 @@ async function loadCriticalData({request, context}: LoaderFunctionArgs) {
     // Add other queries here, so that they are loaded in parallel
   ]);
 
-  const seo = seoPayload.root({shop: layout.shop, url: request.url});
+  const seo = seoPayload.root({shop: layout?.shop, url: request.url});
 
   const {storefront, env} = context;
 
@@ -136,7 +136,10 @@ function loadDeferredData({context}: LoaderFunctionArgs) {
 }
 
 export const meta = ({data}: MetaArgs<typeof loader>) => {
-  return getSeoMeta(data!.seo as SeoConfig);
+  if (!data?.seo) {
+    return [{title: 'HerbSpot.fi'}];
+  }
+  return getSeoMeta(data.seo as SeoConfig);
 };
 
 function Layout({children}: {children?: React.ReactNode}) {
